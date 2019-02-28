@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* updateKoala() {
+function* updateKoala(action) {
   try {
     yield axios.put('/api/koala', action.payload)
     yield put({type: 'SET_KOALAS'})
