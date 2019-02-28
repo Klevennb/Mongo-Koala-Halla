@@ -4,12 +4,12 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
     "axios": "^0.17.1",
     "express": "^4.16.3",
     "mongoose": "^5.4.16",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
-    "react-logger": "^1.1.0",
     "react-redux": "^6.0.1",
     "react-scripts": "^2.1.1",
     "redux": "^4.0.1",
