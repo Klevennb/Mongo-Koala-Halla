@@ -7,6 +7,13 @@ import Button from '@material-ui/core/Button';
 class KoalaListItem extends Component {
 
 
+    editKoala = () => {
+        const action = {
+            type: 'UPDATE_KOALA', payload: this.props.koalas.id};
+            this.props.dispatch(action)
+        }
+    
+
     render(){
         return (
 
@@ -16,6 +23,12 @@ class KoalaListItem extends Component {
                 <td>{this.props.koalas.age}</td>
                 <td><p>{JSON.stringify(this.props.koalas.ready_to_transfer)}</p></td>
                 <td>{this.props.koalas.notes}</td>
+                <td>
+                    <Button type="Delete" 
+                            color="primary" 
+                            onClick={this.editKoala}>
+                    EDIT</Button>
+                </td>
             </tr>
         )
     }
