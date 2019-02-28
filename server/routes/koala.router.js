@@ -35,37 +35,31 @@ const koalaSchema = new Schema({
     notes: {type: String, required: true}
 }); 
 
-const Koalas = mongoose.model('Koalas', koalaSchema);
+const Koala = mongoose.model('Koala', koalaSchema);
 // GET Route
 router.get('/', (req, res) => {
     // REPLACE THIS with mongoose find
-    res.send([
-        {
-            _id: ObjectId("58de9673d0c1cb22fbcb2655"),
-            name: "Scotty",
-            gender: "M",
-            age: 4,
-            ready_to_transfer: true,
-            notes: "Born in Guatemala"
-        }
-    ])
+    Koalas.find({}).then((results) => {
+        console.log('results: ', results);
+        res.send(results);
+    }).catch((error) => {
+        console.log('error in finding Koalas: ', error);
+        res.sendStatus(500);
+    });
 });
 
 // POST route
-
+router.post('/', (req, res) => {
+    const koalaToAdd = req.body;
+    Koala.create(koalaToAdd).then(createdKoala => {
+        res.sendStatus(201);
+    }).catch(error => {
+        console.log('erro in making POST', error);
+        res.sendStatus(500);
+    });
+}); // end of POST
 
 // PUT route
-router.put('/', (req, res) => {
-    const updateKoala = req.body;
-    Koalas.findOneAndUpdate(updateKoala).then(response => {
-        console.log(response);
-        res.sendStatus(200);
-    }).catch(error => {
-        console.log('error ing making PUT', error);
-        res.sendStatus(500)
-    })
-})// end of PUT 
-
 // DELETE route
 
 
