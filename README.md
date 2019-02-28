@@ -74,3 +74,4 @@ Use Jest to unit test wherever you can.
 4. Ability to click on a Koala and see a modal pop up with details
 5. Ability to edit other information (Name, Age, Notes) for existing Koalas in the db. This could be done in the above modal or with a client-side route for a single koala: `/#/edit/4`
 6. Use Material-UI -- Make it super polished!
+random
