@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* addKoala() {
+function* addKoala(action) {
   try {
     console.log(action.payload);
     
