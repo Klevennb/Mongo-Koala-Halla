@@ -13,7 +13,7 @@ class KoalaList extends Component {
     render(){
         return (
             <div>
-                <pre>{JSON.stringify(this.props.reduxState)}</pre>
+                {/* <pre>{JSON.stringify(this.props.reduxState)}</pre> */}
                 <table>
                     <thead>
                         <tr><th>Name</th><th>Gender</th><th>Age</th>

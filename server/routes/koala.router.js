@@ -50,16 +50,10 @@ router.post('/', (req, res) => {
 
 // PUT route
 router.put('/', (req, res) => {
-    console.log(req.body);
-    const updateKoala = req.body.ready_to_transfer
-    console.log(updateKoala);
-    // if (updateKoala == true) {
-    //     return updateKoala = false
-    // }
-    Koala.findOneAndUpdate(updateKoala).then(response => {
-        res.sendStatus(201);
+    Koala.findOneAndUpdate({_id: req.body._id}, req.body).then(updatedKoala => {
+        res.sendStatus(200);
     }).catch(error => {
-        console.log('erro in making POST', error);
+        console.log('erro in making PUT', error);
         res.sendStatus(500);
     });
 }); // end of POST

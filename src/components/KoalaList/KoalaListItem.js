@@ -15,11 +15,11 @@ class KoalaListItem extends Component {
 
     editKoala = () => {
         console.log(this.props.koalas._id);
+        this.props.koalas.ready_to_transfer = !this.props.koalas.ready_to_transfer
         const action = {
-            type: 'UPDATE_KOALA', payload: this.props.koalas._id};
+            type: 'UPDATE_KOALA', payload: {_id:this.props.koalas._id, ready_to_transfer: this.props.koalas.ready_to_transfer}}
             this.props.dispatch(action)
-        }
-    
+    }
 
     render(){
         const readyTransfer = () => {
@@ -41,7 +41,7 @@ class KoalaListItem extends Component {
                     <Button type="Delete" 
                             color="primary" 
                             onClick={this.editKoala}>
-                    EDIT</Button>
+                    Transfer</Button>
                 </td>
             </tr>
         )
