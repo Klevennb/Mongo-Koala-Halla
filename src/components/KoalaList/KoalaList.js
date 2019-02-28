@@ -17,7 +17,7 @@ class KoalaList extends Component {
                 <table>
                     <thead>
                         <tr><th>Name</th><th>Gender</th><th>Age</th>
-                        <th>Ready to Transfer</th><th>Notes</th></tr>
+                        <th>Ready to Transfer</th><th>Notes</th><th>Edit</th></tr>
                     </thead>
                     <tbody>
                         {this.props.reduxState.koalaReducer.map((koalas, i) => {
