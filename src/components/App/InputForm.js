@@ -30,11 +30,11 @@ class InputForm extends Component {
         return (
             <div>
                 <form>
-                    Name:<input name='name' onChange={this.changeState('name')}/>
-                    Gender: <input name='gender' onChange={this.changeState('gender')}/>
-                    Age: <input name='age' onChange={this.changeState('age')}/>
-                    Ready to Transfer?: <input name='ready_to_transfer' onChange={this.changeState('ready_to_transfer')}/>
-                    Notes: <input name='notes' onChange={this.changeState('notes')}/>
+                    Name:<input placeholder="name" name='name' onChange={this.changeState('name')}/>
+                    Gender: <input placeholder="M/F" name='gender' onChange={this.changeState('gender')}/>
+                    Age: <input placeholder="age" name='age' onChange={this.changeState('age')}/>
+                    Ready to Transfer?: <input placeholder="BOOL" name='ready_to_transfer' onChange={this.changeState('ready_to_transfer')}/>
+                    Notes: <input placeholder="notes" name='notes' onChange={this.changeState('notes')}/>
                     <button onClick={this.addKoala}>Add</button>
                 </form>
 

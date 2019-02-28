@@ -14,7 +14,7 @@ class KoalaListItem extends Component {
                 <td>{this.props.koalas.name}</td>
                 <td>{this.props.koalas.gender}</td>
                 <td>{this.props.koalas.age}</td>
-                <td>{this.props.koalas.ready_to_transfer}</td>
+                <td><p>{JSON.stringify(this.props.koalas.ready_to_transfer)}</p></td>
                 <td>{this.props.koalas.notes}</td>
             </tr>
         )

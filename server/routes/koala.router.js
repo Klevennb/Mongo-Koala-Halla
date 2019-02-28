@@ -28,7 +28,7 @@ const Koala = mongoose.model('Koala', koalaSchema);
 // GET Route
 router.get('/', (req, res) => {
     // REPLACE THIS with mongoose find
-    Koalas.find({}).then((results) => {
+    Koala.find({}).then((results) => {
         console.log('results: ', results);
         res.send(results);
     }).catch((error) => {

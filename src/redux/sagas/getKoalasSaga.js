@@ -4,6 +4,8 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* getKoala() {
   try {
     const serverResponse = yield axios.get('/api/koala',)
+    console.log(serverResponse.data);
+    
     yield put({type: 'SET_KOALAS', payload: serverResponse.data})
   } catch (error) {
     console.log('KOALA GET failed', error);
