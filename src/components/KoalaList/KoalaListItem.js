@@ -3,6 +3,19 @@ import { connect } from 'react-redux';
 
 // material-ui imput statements
 import Button from '@material-ui/core/Button';
+import { TableRow } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import TableCell from '@material-ui/core/TableCell';
+
+const CustomTableCell = withStyles(theme => ({
+    head: {
+        backgroundColor: theme.palette.common.black,
+        color: theme.palette.common.white,
+    },
+    body: {
+        fontSize: 14,
+    },
+}))(TableCell);
 
 class KoalaListItem extends Component {
     constructor(props){
@@ -24,26 +37,26 @@ class KoalaListItem extends Component {
     render(){
         const readyTransfer = () => {
             if (this.props.koalas.ready_to_transfer === true) {
-                return <p>Y</p>
+                return <p>YES</p>
             } else {
-                return <p>N</p>
+                return <p>NO</p>
             }
         }
         return (
 
-            <tr>
-                <td>{this.props.koalas.name}</td>
-                <td>{this.props.koalas.gender}</td>
-                <td>{this.props.koalas.age}</td>
-                <td>{readyTransfer()}</td>
-                <td>{this.props.koalas.notes}</td>
-                <td>
-                    <Button type="Delete" 
+            <TableRow>
+                <CustomTableCell align="right">{this.props.koalas.name}</CustomTableCell>
+                <CustomTableCell align="right">{this.props.koalas.gender}</CustomTableCell>
+                <CustomTableCell align="right">{this.props.koalas.age}</CustomTableCell>
+                <CustomTableCell align="right">{readyTransfer()}</CustomTableCell>
+                <CustomTableCell align="right">{this.props.koalas.notes}</CustomTableCell>
+                <CustomTableCell align="right">
+                <Button type="Delete" 
                             color="primary" 
                             onClick={this.editKoala}>
                     Transfer</Button>
-                </td>
-            </tr>
+                </CustomTableCell>
+            </TableRow>
         )
     }
 }

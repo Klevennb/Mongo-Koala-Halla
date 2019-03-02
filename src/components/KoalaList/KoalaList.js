@@ -2,6 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import KoalaListItem from '../KoalaList/KoalaListItem';
 
+import { withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+
+const CustomTableCell = withStyles(theme => ({
+    head: {
+        backgroundColor: theme.palette.common.black,
+        color: theme.palette.common.white,
+    },
+    body: {
+        fontSize: 14,
+    },
+}))(TableCell);
 
 class KoalaList extends Component {
 
@@ -14,17 +32,26 @@ class KoalaList extends Component {
         return (
             <div>
                 {/* <pre>{JSON.stringify(this.props.reduxState)}</pre> */}
-                <table>
-                    <thead>
-                        <tr><th>Name</th><th>Gender</th><th>Age</th>
-                        <th>Ready to Transfer</th><th>Notes</th><th>Edit</th></tr>
-                    </thead>
-                    <tbody>
-                        {this.props.reduxState.koalaReducer.map((koalas, i) => {
+                <br></br>
+                <Paper>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <CustomTableCell align="right">Name</CustomTableCell>
+                            <CustomTableCell align="right">Gender</CustomTableCell>
+                            <CustomTableCell align="right">Age</CustomTableCell>
+                            <CustomTableCell align="right">Ready To Transfer</CustomTableCell>
+                            <CustomTableCell align="right">Notes</CustomTableCell>
+                            <CustomTableCell align="right">Change Status</CustomTableCell>
+                        </TableRow>
+                    </TableHead>
+                        <TableBody>
+                            {this.props.reduxState.koalaReducer.map((koalas, i) => {
                             return (<KoalaListItem key={i} koalas={koalas} />)
                         })}
-                    </tbody>
-                </table>
+                        </TableBody>
+                </Table>
+                </Paper>
             </div>
         );
     }
